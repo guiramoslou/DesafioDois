@@ -28,7 +28,7 @@ public class StudentController {
         return service.getStudents();
     }
 
-    @GetMapping("/student/{id}")
+    @GetMapping("/studentById/{id}")
     public Student findStudentById(@PathVariable int id) {
         return service.getStudentById(id);
     }
@@ -38,8 +38,13 @@ public class StudentController {
         return service.getStudentByName(name);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Student updateStudent(@RequestBody Student student) {
-        return service.saveStudent(student);
+        return service.updateStudent(student);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable int id) {
+        return service.deleteStudent(id);
     }
 }
